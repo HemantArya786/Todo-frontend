@@ -25,6 +25,7 @@ function App() {
         setUpdate(!update);
       })
       .catch((err) => console.log(err));
+    setName("");
   };
 
   const deleteT = (id) => {
@@ -65,6 +66,7 @@ function App() {
                 takeInput();
               }
             }}
+            value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -77,7 +79,10 @@ function App() {
       <section className="d-flex mt-4 justify-content-center">
         <ol className=" p-0 w-50 ">
           {list.map((item) => (
-            <li className=" d-flex justify-content-between my-2 align-items-center gap-3">
+            <li
+              className=" d-flex justify-content-between my-2 align-items-center gap-3"
+              key={item._id}
+            >
               <div className="d-flex">
                 <div className=" px-3 py-2">
                   <input
